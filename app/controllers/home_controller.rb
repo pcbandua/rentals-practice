@@ -8,7 +8,7 @@ class HomeController < ApplicationController
     @home = Home.create(
       description: params[:description],
       year_built: params[year_built],
-      square_feet: params[year_built],
+      square_feet: params[square_feet],
       bedrooms: params[bedrooms],
       floors: params[floors],
       availability: params[availability],
@@ -21,5 +21,19 @@ class HomeController < ApplicationController
   def show
     @home = Home.find_by(id: params[:id])
     render :show
+  end
+
+  def update
+    @homes = Home.find_by(id: params[:id])
+    @homes.update(
+      description: params[:description] || @homes.description,
+      year_built: params[year_built] || @homes.year_built,
+      square_feet: params[square_feet] || @homes.square_feet,
+      bedrooms: params[bedrooms] || @homes.bedrooms,
+      floors: params[floors] || @homes.floors,
+      availability: params[availability] || @homes.availability,
+      address: params[address] || @homes.address,
+      price: params[price] || @homes.price,
+    )
   end
 end

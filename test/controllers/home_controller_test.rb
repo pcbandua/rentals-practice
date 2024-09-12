@@ -26,6 +26,15 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_equal ["description", "year_built", "square_feet", "bedrooms", "floors", "availability", "address", "price"]
   end
 
+  test "update" do
+    home = Home.first
+    patch "/homes/#{home.id}.json", params: { name: "Updated name" }
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal "Updated name", data["name"]
+  end
+
   # create_table "homes", force: :cascade do |t|
   #   t.string "description"
   #   t.integer "year_built"
