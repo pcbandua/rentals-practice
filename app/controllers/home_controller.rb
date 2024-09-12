@@ -24,8 +24,8 @@ class HomeController < ApplicationController
   end
 
   def update
-    @homes = Home.find_by(id: params[:id])
-    @homes.update(
+    @home = Home.find_by(id: params[:id])
+    @home.update(
       description: params[:description] || @homes.description,
       year_built: params[year_built] || @homes.year_built,
       square_feet: params[square_feet] || @homes.square_feet,
@@ -35,5 +35,12 @@ class HomeController < ApplicationController
       address: params[address] || @homes.address,
       price: params[price] || @homes.price,
     )
+    render :show
+  end
+
+  def destroy
+    @home = Home.find_by(id: params[:id])
+    @home.destroy
+    render json: { message: "Home lisiting removed successfully" }
   end
 end

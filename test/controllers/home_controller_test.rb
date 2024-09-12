@@ -35,6 +35,12 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Updated name", data["name"]
   end
 
+  test "destroy" do
+    assert_difference "Home.count", -1 do
+      delete "/homes/#{Home.first.id}.json"
+      assert_response 200
+    end
+  end
   # create_table "homes", force: :cascade do |t|
   #   t.string "description"
   #   t.integer "year_built"
