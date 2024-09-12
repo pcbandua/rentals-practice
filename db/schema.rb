@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_12_180118) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_12_180631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "homes", force: :cascade do |t|
     t.string "description"
     t.integer "year_built"
-    t.integer "sqaure_feet"
+    t.integer "square_feet"
     t.integer "bedrooms"
     t.integer "bathrooms"
     t.string "floors"
