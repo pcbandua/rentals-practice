@@ -18,6 +18,14 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "show" do
+    get "/home/#{Home.first.id}.json"
+    assert_response 200
+
+    data = JSON.parse(response.body)
+    assert_equal ["description", "year_built", "square_feet", "bedrooms", "floors", "availability", "address", "price"]
+  end
+
   # create_table "homes", force: :cascade do |t|
   #   t.string "description"
   #   t.integer "year_built"

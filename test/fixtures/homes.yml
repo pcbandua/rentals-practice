@@ -3,7 +3,7 @@
 one:
   description: MyString
   year_built: 1
-  sqaure_feet: 1
+  square_feet: 1
   bedrooms: 1
   bathrooms: 1
   floors: MyString
@@ -14,7 +14,7 @@ one:
 two:
   description: MyString
   year_built: 1
-  sqaure_feet: 1
+  square_feet: 1
   bedrooms: 1
   bathrooms: 1
   floors: MyString
